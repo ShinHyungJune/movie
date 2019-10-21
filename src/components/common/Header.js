@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import logo from "assets/img/logo";
+import logo from 'assets/img/logo.png';
 
 const Header = () => {
 	return (
 		<div className="header">
-			{logo}
-			123
+			<img src={logo} alt=""/>
 		</div>
 	);
 };
