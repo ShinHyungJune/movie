@@ -1,0 +1,29 @@
+.header {width:100%; position:fixed; top:0; left:0; box-shadow:0px 3px 6px rgba(0,0,0,0.16); z-index:1; background-color:#fff;}
+.header .wrap-1200 {position:relative; height:100px;}
+.header .logo {position:absolute; left:0; top:52%; transform:translateY(-50%);}
+.utils {width:100%; padding:10px 0; position:fixed; top:100px; left:0; text-align:right; background-color:#fff; border-top:1px solid #e1e1e1; box-shadow:0px 6px 6px rgba(0,0,0,0.16); z-index:2;}
+.utils .util {margin:0 5px; padding:5px 10px; font-size:14px; color:#fff; border-radius:3px; transition: box-shadow .3s;}
+.utils .util:hover {box-shadow:0px 3px 6px rgba(0,0,0,0.16);}
+
+.wrap-contents {padding-top:170px;}
+
+
+#movies {display:flex;}
+#movies .movie {flex:1; width:215px; margin:0 15px; position:relative; top:0; left:0; box-shadow:0px 3px 6px rgba(0,0,0,0.16); transition:box-shadow .3s, top .3s, bottom .3s;}
+#movies .movie:hover {position:relative; top:-10px; box-shadow:4px 8px 10px rgba(0,0,0,0.16);}
+#movies .movie img {display:block; width:100%;}
+#movies .movie .date {padding:3px 10px; position:absolute; top:10px; right:10px; font-size:12px; background-color:#00CD3C; color:#fff; border-radius:3px; box-shadow:0px 3px 6px rgba(0,0,0,0.16);}
+#movies .movie .title {width:100%; padding:15px 20px; position:absolute; left:0; bottom:0; font-size:16px; font-weight:500; color:#fff; background-color:rgba(0,0,0,0.6);}
+
+#movie {position:relative;}
+#movie:after {display:block; content:""; clear:both;}
+#movie .wrap-1200:after {display:block; content:""; clear:both;}
+#movie .poster {width:230px; float:left;}
+#movie .box-text {width:930px; margin-top:40px; margin-left:40px; float:left;}
+#movie .box-text .date {padding:3px 10px; font-size:12px; background-color:#00CD3C; color:#fff; border-radius:3px;}
+#movie .box-text .box-title {margin-bottom:20px;}
+#movie .box-text .title {display:inline-block; font-size:40px; font-weight:600;}
+#movie .box-text .tag {display:inline-block; margin:0 20px; font-weight:600; color:#039EA1;}
+#movie .box-text .view {display:inline-block; font-weight:600; color:#333;}
+#movie .box-text .view img {margin-right:8px; position:relative; top:3px;}
+#movie .box-text .body {color:#999;}
