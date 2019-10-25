@@ -10,6 +10,7 @@ import {setPop} from 'actions/commonActions';
 * */
 
 const PopFunction = ({ids, name, buttons, contents, setPop, pop}) => {
+
 	const close = () => {
 		setPop(null);
 	};
@@ -31,7 +32,9 @@ const PopFunction = ({ids, name, buttons, contents, setPop, pop}) => {
 				<div className="pop">
 					<p className="pop-title">{name}</p>
 
-					{contents}
+					<div className="pop-contents">
+						{contents}
+					</div>
 
 					<div className="pop-btns">
 						{buttons.map((button, index) => (<button key={index} className="pop-btn" onClick={button.method}>{button.name}</button>))}

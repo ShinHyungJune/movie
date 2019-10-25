@@ -1,4 +1,4 @@
-import {ADD_TAG, REMOVE_TAG, UPDATE_TAG} from "../types";
+import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, SET_TAGS} from "../types";
 
 const initialState = {
     tags : [],
@@ -12,11 +12,11 @@ export default (state = initialState, action) => {
         case ADD_TAG:
             return {
                 ...state,
-                tags: [action.payload, ...state.tags]
+                tags: [...state.tags, action.payload]
             };
 
         case REMOVE_TAG:
-            let newTags = state.tags.filter(tag=> tag.id !== action.payload.id);
+            let newTags = state.tags.filter(tag => tag.id !== action.payload.id);
 
             return {
                 ...state,
@@ -28,7 +28,15 @@ export default (state = initialState, action) => {
                 tags: state.tags.map((tag) => {
                     if(tag.id === action.payload.id)
                         return action.payload;
+
+                    return tag;
                 })
-            }
+            };
+
+		case SET_TAGS:
+			return {
+				...state,
+				tags: action.payload
+			};
     }
 };

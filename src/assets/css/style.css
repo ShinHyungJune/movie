@@ -27,3 +27,10 @@
 #movie .box-text .view {display:inline-block; font-weight:600; color:#333;}
 #movie .box-text .view img {margin-right:8px; position:relative; top:3px;}
 #movie .box-text .body {color:#999;}
+
+.tags .tag {margin-top:15px; position:relative;}
+.tags .tag:first-child {margin-top:0;}
+.tags .tag-name {font-weight:500; font-weight:500; color:#039EA1;}
+.tags .tag-utils {position:absolute; top:50%; right:0; transform:translateY(-50%);}
+.tags .tag-utils .tag-util {margin-left:10px; font-size:14px; color:#999999;}
+.tags .input-wrap {padding-right:80px;}

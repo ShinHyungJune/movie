@@ -1,4 +1,5 @@
-import {ADD_TAG, REMOVE_TAG, UPDATE_TAG} from "../types";
+import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, SET_TAGS} from "../types";
+import axios from 'axios';
 
 export const addTag = (data) => {
     return (dispatch) => {
@@ -10,6 +11,8 @@ export const addTag = (data) => {
 };
 
 export const removeTag = (data) => {
+	axios.delete('/tags/' + data.id);
+
     return (dispatch) => {
         dispatch({
             type: REMOVE_TAG,
@@ -19,10 +22,21 @@ export const removeTag = (data) => {
 };
 
 export const updateTag = (data) => {
+	axios.patch('/tags/' + data.id, data);
+
     return (dispatch) => {
         dispatch({
            type: UPDATE_TAG,
            payload: data
         });
     }
+};
+
+export const setTags = (data) => {
+	return (dispatch) => {
+		dispatch({
+			type: SET_TAGS,
+			payload: data
+		});
+	}
 };

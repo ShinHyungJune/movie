@@ -8,10 +8,15 @@
 
 .pop {width:300px; padding:20px 30px; position:fixed; top:50%; left:50%; transform: translate(-50%, -50%); background-color:#fff; z-index:4; box-shadow:0px 3px 6px rgba(0,0,0,0.16);}
 .pop-title {margin-bottom:30px; font-size:18px; font-weight:500; text-align:center;}
+.pop-contents {max-height:300px; overflow-y:auto;}
+.pop-contents::-webkit-scrollbar {
+    display: none;
+}
 .pop-btns {display:flex; width:100%; margin-top:30px;}
 .pop-btns .pop-btn {flex:1; margin-left:5px; padding:8px 0; background-color:#999999; color:#fff; border-radius:5px; transition: box-shadow .3s;}
 .pop-btns .pop-btn:hover {box-shadow:0px 3px 6px rgba(0,0,0,0.16);}
 .pop-btns .pop-btn:first-child {flex:1; margin-left:0px; background-color:#039EA1;}
+
 
 .input-wrap {margin-top:15px;}
 .input-wrap:first-child {margin-top:0;}
