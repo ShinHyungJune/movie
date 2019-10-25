@@ -1,6 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import commonActions from 'actions/commonActions';
+import {setPop} from 'actions/commonActions';
 
 /*
 * id - 팝업창 식별자
@@ -34,7 +34,7 @@ const PopFunction = ({ids, name, buttons, contents, setPop, pop}) => {
 					{contents}
 
 					<div className="pop-btns">
-						{buttons.map(button => (<button className="pop-btn" onClick={button.method}>{button.name}</button>))}
+						{buttons.map((button, index) => (<button key={index} className="pop-btn" onClick={button.method}>{button.name}</button>))}
 						<button className="pop-btn bg-gray" onClick={close}>취소</button>
 					</div>
 				</div>
@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		setPop: (data) => {
-			dispatch(commonActions.setPop(data));
+			dispatch(setPop(data));
 		}
 	}
 };

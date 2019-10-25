@@ -1,10 +1,11 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import commonActions from 'actions/commonActions';
+import {setPop} from 'actions/commonActions';
 
 import Movie from "../components/Movie";
-import PopFunc from '../components/common/PopFunction';
+import CreateTag from 'components/tags/CreateTag';
+import ManageTag from 'components/tags/ManageTag';
 
 const Movies = ({commonActions: {setPop}}) => {
 	let [movies, setMovies] = useState([]);
@@ -18,12 +19,14 @@ const Movies = ({commonActions: {setPop}}) => {
 
 	return (
 		<Fragment>
-			<PopFunc ids="addTag" name="태그 추가"  buttons={[]} contents={null}/>
+			<ManageTag />
+			<CreateTag />
 
 			<div className="utils">
 				<div className="wrap-1200">
 					<button className="util bg-primary">프로젝트 생성</button>
 					<button className="util bg-sub" onClick={() => setPop('addTag')}>태그 생성</button>
+					<button className="util bg-sub" onClick={() => setPop('manageTag')}>태그 관리</button>
 				</div>
 			</div>
 
@@ -42,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		commonActions: {
 			setPop: (data) => {
-				dispatch(commonActions.setPop(data));
+				dispatch(setPop(data));
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 import {SET_LOADING, SET_POP} from "../types";
 
-const setLoading = (data) => {
+export const setLoading = (data) => {
 	return (dispatch) => {
 		dispatch({
 			type: SET_LOADING,
@@ -9,7 +9,7 @@ const setLoading = (data) => {
 	};
 };
 
-const setPop = (data) => {
+export const setPop = (data) => {
 	return (dispatch) => {
 		dispatch({
 			type: SET_POP,
@@ -18,9 +18,3 @@ const setPop = (data) => {
 	};
 };
 
-const actions = {
-	setLoading,
-	setPop
-};
-
-export default actions;
