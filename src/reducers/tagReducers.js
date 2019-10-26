@@ -32,11 +32,10 @@ export default (state = initialState, action) => {
                     return tag;
                 })
             };
-
-		case SET_TAGS:
-			return {
-				...state,
-				tags: action.payload
-			};
+        case SET_TAGS:
+            return {
+                ...state,
+                tags: action.payload
+            }
     }
 };

@@ -1,7 +1,16 @@
 import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, SET_TAGS} from "../types";
 import axios from 'axios';
 
-export const addTag = (data) => {
+export const set = (data) => {
+    return (dispatch) => {
+        dispatch({
+            type: SET_TAGS,
+            payload: data
+        })
+    }
+};
+
+export const save = (data) => {
     return (dispatch) => {
         dispatch({
             type: ADD_TAG,
@@ -10,7 +19,7 @@ export const addTag = (data) => {
     }
 };
 
-export const removeTag = (data) => {
+export const remove = (data) => {
 	axios.delete('/tags/' + data.id);
 
     return (dispatch) => {
@@ -21,7 +30,7 @@ export const removeTag = (data) => {
     }
 };
 
-export const updateTag = (data) => {
+export const update = (data) => {
 	axios.patch('/tags/' + data.id, data);
 
     return (dispatch) => {
@@ -30,13 +39,4 @@ export const updateTag = (data) => {
            payload: data
         });
     }
-};
-
-export const setTags = (data) => {
-	return (dispatch) => {
-		dispatch({
-			type: SET_TAGS,
-			payload: data
-		});
-	}
 };

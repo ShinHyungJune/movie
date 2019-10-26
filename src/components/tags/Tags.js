@@ -1,16 +1,16 @@
 import React, {Component, useEffect} from 'react';
-import {setTags} from 'actions/contentsActions';
+import {set} from 'actions/tagActions';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import Tag from "./Tag";
 
 
-const Tags = ({tags, setTags}) => {
+const Tags = ({tags, set}) => {
 	useEffect(() => {
 		if(tags.length === 0) {
 			axios.get('/tags')
 				.then((response) => {
-					setTags(response.data);
+					set(response.data);
 				});
 		}
 	}, []);
@@ -24,14 +24,14 @@ const Tags = ({tags, setTags}) => {
 
 const mapStates = (state) => {
 	return {
-		tags: state.contentsStates.tags
+		tags: state.tagsStates.tags
 	}
 };
 
 const mapDispatch = (dispatch) => {
 	return {
-		setTags: (data) => {
-			dispatch(setTags(data));
+		set: (data) => {
+			dispatch(set(data));
 		}
 	};
 };

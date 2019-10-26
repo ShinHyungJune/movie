@@ -24,7 +24,7 @@ const Movies = ({commonActions: {setPop}}) => {
 
 			<div className="utils">
 				<div className="wrap-1200">
-					<button className="util bg-primary">프로젝트 생성</button>
+					<button className="util bg-primary">영화 생성</button>
 					<button className="util bg-sub" onClick={() => setPop('addTag')}>태그 생성</button>
 					<button className="util bg-sub" onClick={() => setPop('manageTag')}>태그 관리</button>
 				</div>

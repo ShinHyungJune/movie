@@ -6,7 +6,7 @@ const ManageTag = () => {
 
 	return (
 		<Fragment>
-			<PopFunction ids="manageTag" name="카테고리 관리" buttons={[]} contents={<Tags /> } />
+			<PopFunction ids="manageTag" name="태그 관리" buttons={[]} contents={<Tags /> } />
 		</Fragment>
 	);
 };
