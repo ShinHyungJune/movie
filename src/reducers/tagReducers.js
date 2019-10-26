@@ -1,4 +1,4 @@
-import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, SET_TAGS} from "../types";
+import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, GET_TAG} from "../types";
 
 const initialState = {
     tags : [],
@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
                     return tag;
                 })
             };
-        case SET_TAGS:
+        case GET_TAG:
             return {
                 ...state,
                 tags: action.payload

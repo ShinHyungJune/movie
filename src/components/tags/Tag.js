@@ -4,18 +4,18 @@ import {connect} from 'react-redux';
 
 const Tag = ({tag, remove, update}) => {
 	let [edit, setEdit] = useState(false);
-	let [item, setItem] = useState({});
+	let [form, setForm] = useState({});
 
 	useEffect(() => {
-		setItem(tag)
+		setForm(tag);
 	}, []);
 
 	const onChange = (e) => {
-		setItem({...item, [e.target.name] : e.target.value});
+		setForm({...form, [e.target.name] : e.target.value});
 	};
 
 	const updateTag = () => {
-		update(item);
+		update(form);
 
 		setEdit(false);
 	};
@@ -26,7 +26,7 @@ const Tag = ({tag, remove, update}) => {
 				? 
 				<div className="input-wrap">
 					<div className="input">
-						<input type="text" name="name" value={item.name} onChange={onChange}/>
+						<input type="text" name="name" value={form.name} onChange={onChange}/>
 					</div>
 				</div>
 				: <p className="tag-name">{tag.name}</p>
@@ -45,7 +45,6 @@ const Tag = ({tag, remove, update}) => {
 						<button className="tag-util" onClick={() => setEdit(true)}>수정</button>
 						<button className="tag-util" onClick={() => remove(tag)}>삭제</button>
 					</Fragment>
-
 				}
 			</div>
 		</div>
