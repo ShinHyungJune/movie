@@ -3,9 +3,10 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {setPop} from 'actions/commonActions';
 
-import Movie from "../components/Movie";
+import Movie from "../components/movies/Movie";
 import CreateTag from 'components/tags/CreateTag';
 import ManageTag from 'components/tags/ManageTag';
+import CreateMovie from 'components/movies/CreateMovie';
 
 const Movies = ({commonActions: {setPop}}) => {
 	let [movies, setMovies] = useState([]);
@@ -21,10 +22,11 @@ const Movies = ({commonActions: {setPop}}) => {
 		<Fragment>
 			<ManageTag />
 			<CreateTag />
+			<CreateMovie />
 
 			<div className="utils">
 				<div className="wrap-1200">
-					<button className="util bg-primary">영화 생성</button>
+					<button className="util bg-primary" onClick={() => setPop("createMovie")}>영화 생성</button>
 					<button className="util bg-sub" onClick={() => setPop('addTag')}>태그 생성</button>
 					<button className="util bg-sub" onClick={() => setPop('manageTag')}>태그 관리</button>
 				</div>
