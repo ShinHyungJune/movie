@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import commonReducers from './commonReducers';
-import contentsReducers from './contentsReducers';
+import tagReducers from './tagReducers';
+import movieReducers from './movieReducers';
 
 export default combineReducers({
 	commonStates: commonReducers,
-	contentsStates: contentsReducers
+	tagStates: tagReducers,
+	movieStates: movieReducers
 });

@@ -1,10 +1,10 @@
 import React, {Component, Fragment, useState} from 'react';
 import axios from 'axios';
-import {addTag} from 'actions/contentsActions';
+import {save} from 'actions/tagActions';
 import PopFunc from 'components/common/PopFunction';
 import {connect} from 'react-redux';
 
-const CreateTag = ({tags, addTag}) => {
+const CreateTag = ({tags, save}) => {
     let [form, setForm] = useState({
         name: ""
     });
@@ -16,12 +16,7 @@ const CreateTag = ({tags, addTag}) => {
     };
 
     const store = () => {
-        axios.post('/tags', form)
-            .then((response) => {
-                addTag(response.data);
-
-                alert("성공적으로 추가되었습니다.");
-            });
+		save(form);
     };
 
     const buttons = [
@@ -49,13 +44,13 @@ const CreateTag = ({tags, addTag}) => {
 
 const mapState = (state) => {
     return {
-        tags: state.contentsStates.tags
+        tags: state.tagStates.tags
     }
 };
 
 const mapDispatch = (dispatch) => {
     return {
-        addTag: (data) => dispatch(addTag(data)),
+        save: (data) => dispatch(save(data)),
     }
 };
 

@@ -1,21 +1,21 @@
 import React, {Component, Fragment, useState, useEffect} from 'react';
-import {removeTag, updateTag} from 'actions/contentsActions';
+import {remove, update} from 'actions/tagActions';
 import {connect} from 'react-redux';
 
-const Tag = ({tag, removeTag, updateTag}) => {
+const Tag = ({tag, remove, update}) => {
 	let [edit, setEdit] = useState(false);
-	let [item, setItem] = useState({});
+	let [form, setForm] = useState({});
 
 	useEffect(() => {
-		setItem(tag)
+		setForm(tag);
 	}, []);
 
 	const onChange = (e) => {
-		setItem({...item, [e.target.name] : e.target.value});
+		setForm({...form, [e.target.name] : e.target.value});
 	};
 
-	const update = () => {
-		updateTag(item);
+	const updateTag = () => {
+		update(form);
 
 		setEdit(false);
 	};
@@ -26,7 +26,7 @@ const Tag = ({tag, removeTag, updateTag}) => {
 				? 
 				<div className="input-wrap">
 					<div className="input">
-						<input type="text" name="name" value={item.name} onChange={onChange}/>
+						<input type="text" name="name" value={form.name} onChange={onChange}/>
 					</div>
 				</div>
 				: <p className="tag-name">{tag.name}</p>
@@ -37,15 +37,14 @@ const Tag = ({tag, removeTag, updateTag}) => {
 				{ edit
 					?
 					<Fragment>
-						<button className="tag-util" onClick={update}>확인</button>
+						<button className="tag-util" onClick={updateTag}>확인</button>
 						<button className="tag-util" onClick={() => setEdit(false)}>취소</button>
 					</Fragment>
 					:
 					<Fragment>
 						<button className="tag-util" onClick={() => setEdit(true)}>수정</button>
-						<button className="tag-util" onClick={() => removeTag(tag)}>삭제</button>
+						<button className="tag-util" onClick={() => remove(tag)}>삭제</button>
 					</Fragment>
-
 				}
 			</div>
 		</div>
@@ -60,12 +59,12 @@ const mapStates = (state) => {
 
 const mapDispatch = (dispatch) => {
 	return {
-		removeTag: (data) => {
-			dispatch(removeTag(data))
+		remove: (data) => {
+			dispatch(remove(data))
 		},
 
-		updateTag: (data) => {
-			dispatch(updateTag(data))
+		update: (data) => {
+			dispatch(update(data))
 		}
 	};
 };
