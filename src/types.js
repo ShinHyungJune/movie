@@ -6,5 +6,6 @@ export const REMOVE_TAG = "REMOVE_TAG";
 export const UPDATE_TAG = "UPDATE_TAG";
 export const GET_TAG = "GET_TAG";
 
-export const ADD_MOVIE = "ADD_MOVIE";
 export const GET_MOVIE = "GET_MOVIE";
+export const ADD_MOVIE = "ADD_MOVIE";
+export const DELETE_MOVIE = "DELETE_MOVIE";

@@ -1,9 +1,17 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import PopFunction from 'components/common/PopFunction';
+import {connect} from 'react-redux';
+import {save} from 'actions/movieActions';
 
-const CreateMovie = () => {
-	const onChange = () => {
-		return null;
+const CreateMovie = ({save}) => {
+	let [form, setForm] = useState({});
+
+	const onChange = (e) => {
+		setForm({...form, [e.target.name] : e.target.value});
+	};
+
+	const store = () => {
+		save(form);
 	};
 
 	const contents = (
@@ -22,7 +30,7 @@ const CreateMovie = () => {
 
 			<div className="input-wrap">
 				<div className="input">
-					<input type="datetime" name="openedAt" placeholder="출시년도" onChange={onChange}/>
+					<input type="date" name="openedAt" placeholder="출시년도" onChange={onChange}/>
 				</div>
 			</div>
 
@@ -42,11 +50,26 @@ const CreateMovie = () => {
 		</Fragment>
 	);
 
+	const buttons = [
+		{
+			name: "생성",
+			method: store
+		}
+	];
+
 	return (
 		<div className="createMovie">
-			<PopFunction ids="createMovie" name="영화 생성" buttons={[]} contents={contents}/>
+			<PopFunction ids="createMovie" name="영화 생성" buttons={buttons} contents={contents}/>
 		</div>
 	);
 };
 
-export default CreateMovie;
+const mapDispatch = (dispatch) => {
+	return {
+		save: (data) => {
+			dispatch(save(data))
+		}
+	};
+};
+
+export default connect(null, mapDispatch)(CreateMovie);
