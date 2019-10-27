@@ -12,7 +12,7 @@ const Movie = ({match, tags, movie, remove, show, setPop, getTags}) => {
 			show(match.params.id);
 
 
-	},[]);
+	},[match.params.id]);
 
 	if(movie)
 		return (

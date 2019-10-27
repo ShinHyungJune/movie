@@ -1,9 +1,11 @@
 import {SET_MOVIES, SET_MOVIE, ADD_MOVIE, DELETE_MOVIE, UPDATE_MOVIE, SET_POP} from "../types";
 import axios from 'axios';
 
-export const get = (data) => {
+export const get = (word) => {
+	let url = word ? `/movies?q=${word}` : '/movies';
+
 	return (dispatch) => {
-		axios.get('/movies')
+		axios.get(url)
 			.then((response) => {
 				dispatch({
 					type: SET_MOVIES,

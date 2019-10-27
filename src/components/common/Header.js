@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Search from 'components/Search';
 import logo from 'assets/img/logo.png';
 
 const Header = () => {
@@ -9,6 +10,9 @@ const Header = () => {
 				<Link to="/">
 					<img src={logo} alt="" className="logo"/>
 				</Link>
+
+				<Search />
+
 			</div>
 		</div>
 	);

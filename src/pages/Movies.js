@@ -36,8 +36,8 @@ const Movies = ({movies, tags, setPop, getTags, getMovies}) => {
 					</div>
 				</div>
 
-				<div className="wrap-1200">
-					<div id="movies">
+				<div id="movies">
+					<div className="wrap-1200">
 						{movies.map((movie) => {
 							return (<Movie movie={movie} key={movie.id} />);
 						})}
