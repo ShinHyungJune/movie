@@ -1,6 +1,7 @@
-import {GET_MOVIE, ADD_MOVIE, DELETE_MOVIE} from "../types";
+import {SET_MOVIES, SET_MOVIE, ADD_MOVIE, DELETE_MOVIE, UPDATE_MOVIE} from "../types";
 
 const initialState = {
+	movie: null,
 	movies: null
 };
 
@@ -9,10 +10,16 @@ export default (state = initialState, action) => {
 		default:
 			return state;
 
-		case GET_MOVIE:
+		case SET_MOVIES:
 			return {
 				...state,
 				movies: action.payload
+			};
+
+		case SET_MOVIE:
+			return {
+				...state,
+				movie: action.payload
 			};
 
 		case ADD_MOVIE:
@@ -26,5 +33,16 @@ export default (state = initialState, action) => {
 				...state,
 				movies: state.movies.filter(movie => movie.id !== action.payload)
 			};
+
+		case UPDATE_MOVIE:
+			return {
+				...state,
+				movies: state.movies.map((movie) => {
+					if(movie.id === action.payload.id)
+						return action.payload;
+
+					return movie;
+				})
+			}
 	}
 }

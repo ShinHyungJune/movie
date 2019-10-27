@@ -14,6 +14,6 @@ const Movie = ({movie}) => {
 			<p className="title">{movie.title}</p>
 		</Link>
 	);
-}
+};
 
 export default Movie;

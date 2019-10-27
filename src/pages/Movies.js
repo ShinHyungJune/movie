@@ -16,7 +16,7 @@ const Movies = ({movies, tags, setPop, getTags, getMovies}) => {
 		if(!movies)
 			getMovies();
 
-		if(tags.length === 0) {
+		if(!tags) {
 			getTags();
 		}
 	}, []);
