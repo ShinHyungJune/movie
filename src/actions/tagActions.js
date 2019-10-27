@@ -1,4 +1,4 @@
-import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, GET_TAG} from "../types";
+import {ADD_TAG, REMOVE_TAG, UPDATE_TAG, SET_TAGS} from "../types";
 import axios from 'axios';
 
 export const get = (data) => {
@@ -6,7 +6,7 @@ export const get = (data) => {
 		axios.get('/tags')
 			.then((response) => {
 				dispatch({
-					type: GET_TAG,
+					type: SET_TAGS,
 					payload: response.data
 				})
 			});
