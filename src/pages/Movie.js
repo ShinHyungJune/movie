@@ -3,13 +3,16 @@ import IconEye from 'assets/img/icon_eye_green.png';
 import CreateMovie from 'components/movies/CreateMovie';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {remove, show} from 'actions/movieActions';
+import {remove, show, update} from 'actions/movieActions';
 import {setPop} from 'actions/commonActions';
 
-const Movie = ({match, tags, movie, remove, show, setPop, getTags}) => {
+const Movie = ({match, tags, movie, remove, show, update, setPop, getTags}) => {
 	useEffect(() => {
 		if(!movie || movie.id !== match.params.id)
 			show(match.params.id);
+
+		if(movie)
+			update(movie.id, {...movie, visits: movie.visits + 1});
 
 
 	},[match.params.id]);
@@ -73,6 +76,10 @@ const mapDispatch = (dispatch) => {
 		setPop: (data) => {
 			dispatch(setPop(data));
 		},
+
+		update: (id, data) => {
+			dispatch(update(id, data));
+		}
 	}
 };
 

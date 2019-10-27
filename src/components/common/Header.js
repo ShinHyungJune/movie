@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import logo from 'assets/img/logo.png';
 import {Link} from 'react-router-dom';
 import Search from 'components/Search';
-import logo from 'assets/img/logo.png';
+import Ranking from 'components/Ranking';
 
 const Header = () => {
 	return (
@@ -13,6 +14,7 @@ const Header = () => {
 
 				<Search />
 
+				<Ranking />
 			</div>
 		</div>
 	);

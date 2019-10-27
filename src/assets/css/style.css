@@ -41,6 +41,14 @@
 .tags .tag-utils .tag-util {margin-left:10px; font-size:14px; color:#999999;}
 .tags .input-wrap {padding-right:80px;}
 
+.rankings {width:200px; position:absolute; right:0; top:26px;}
+.rankings:hover .ranking {display:block;}
+.rankings .ranking {display:none; padding:7px 7px; background-color:#fff; transition:background-color .3s; border:1px solid #e1e1e1; border-bottom:none;}
+.rankings .ranking:first-child {display:block; border:none; border-bottom:1px solid #00CD3C;}
+.rankings .ranking:last-child {border-bottom:1px solid #e1e1e1;}
+.rankings .ranking:hover {background-color:#E5FAEB;}
+.rankings .ranking-rank {margin-right:20px; font-size:20px; font-weight:600; color:#00CD3C;}
+.rankings .ranking-title {position:relative; bottom:2px; font-size:14px;}
 @media screen and (max-width:1200px) {
     #movies .movie {width:32%;}
     #movies .movie:nth-child(3n + 1) {margin-left:0;}

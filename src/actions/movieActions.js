@@ -22,7 +22,7 @@ export const show = (id) => {
 				dispatch({
 					type: SET_MOVIE,
 					payload: response.data
-				})
+				});
 			})
 	}
 };

@@ -10,7 +10,8 @@ const CreateMovie = ({getTags, save, get, update, movies, movie = null, tags}) =
 		body: "",
 		openedAt: "",
 		img: "",
-		tagId: ""
+		tagId: "",
+		visits: 0
 	});
 
 	let name = movie ? "영화 수정" : "영화 생성";
